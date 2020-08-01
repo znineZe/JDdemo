@@ -1,0 +1,21 @@
+console.log("加载成功");
+/*
+    购物车入口文件
+    为要引入的js文件配置路径
+*/
+require.config({
+    paths:{
+        jquery:"jquery.min",
+        jqueryCookie:"jquery.cookie",
+        addSub:"addSub",
+        shopCar_init:"shopCar_init",
+    },
+    shim:{
+        jqueryCookie:["jquery"]
+    }
+})
+require(["shopCar_init","addSub"],function(init,addSub){
+    init.init();
+    init.getDataShopCar();
+    addSub.addSub(null,"#shopCar-add","#shopCar-sub");
+})

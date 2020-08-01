@@ -1,0 +1,19 @@
+console.log("加载成功");
+/*
+    对要引入的js进行路径配置
+*/
+require.config({
+    paths:{
+        jquery:"jquery.min",
+        jqueryCookie:"jquery.cookie",
+        commodity_init:"commodity_init",//初始化
+        getData:"getData"//获取数据
+    },
+    shim:{
+        jqueryCookie:["jquery"]
+    }
+});
+
+require(["commodity_init"],function(init){
+    init.init();
+})

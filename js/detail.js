@@ -1,0 +1,25 @@
+/*
+    商品细节详情页入口文件
+    为要引入的js文件配置路径
+*/
+require.config({
+    paths:{
+        jquery:"jquery.min",
+        jqueryCookie:"jquery.cookie",
+        addSub:"addSub",
+        shopCookie:"shopCookie",
+        detail_init:"detail_init",
+        magnifying:"magnifying"
+    },
+    shim:{
+        //设置依赖关系
+        jqueryCookie:["jquery"]
+    }
+});
+require(["detail_init","addSub","shopCookie"],function(init,addSub,shopCookie){
+    init.init();
+    //引入加减号函数
+    addSub.addSub("#num","#btnAdd","#btnSub");
+    //加入购物车函数
+    shopCookie.shopCookie();
+})
